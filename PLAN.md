@@ -163,11 +163,24 @@ Generate an ER diagram artifact.
 **Deliverables:** migrations and tests pass (`rails db:migrate && rails test`).
 
 ## Phase 3 — Authentication & Authorization Layer
-1. Install Devise for Patient & Staff (`Staff` STI for Provider/Admin/FrontDesk).
-2. Add `devise-security` rules (password expiry, history, complexity).
-3. Implement Pundit policies/scopes for each model (strict *least-privilege*).
-4. Write policy tests + request/integration tests for auth flows (login, signup, session timeout).
-5. Deliverables: passing specs, README section on roles.
+### Phase 3.1 – Devise Setup
+- [ ] Add `devise` gem and run installer
+- [ ] Generate `Patient` and `Staff` Devise models
+- [ ] Configure `Staff` STI for Provider/Admin/FrontDesk
+
+### Phase 3.2 – Devise Security
+- [ ] Include `devise-security` gem
+- [ ] Enforce password expiry, history and complexity rules
+
+### Phase 3.3 – Authorization via Pundit
+- [ ] Create `ApplicationPolicy` base class
+- [ ] Define policies and scopes for each model
+
+### Phase 3.4 – Authentication & Policy Tests
+- [ ] Request tests for login, signup and session timeout
+- [ ] Policy tests for all roles and resources
+
+**Deliverables:** passing specs; README section outlining available roles
 
 ## Phase 4 — Domain Controllers, Routes & Integration Tests
 1. Scaffold RESTful controllers under proper namespaces (see Section 6 routes).
