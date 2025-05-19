@@ -91,18 +91,69 @@ Reusable modules shared across models.
 
 ### Phase 2.4 – Model Tests
 Existing tests cover only a few models. Expand until overall coverage exceeds
-95 %.
+95 % with specs for every model.
 
-- [x] Appointment model tests
-- [x] Patient model tests
-- [ ] Tests for remaining models
+- [x] **Appointment** – model tests
+- [x] **Patient** – model tests
+- [ ] **ProviderSchedule** – test `day_of_week` enum and validations
+- [ ] **FeeSchedule** – test `name` validation
+- [ ] **Location** – test address accessors and `name` validation
+- [ ] **PatientInsurance** – test `insurance_type` enum
+- [ ] **ServiceCode** – test `code` validation and `code_type` enum
+- [ ] **Staff** – test `full_name` validation
+- [ ] **Allergy** – test presence validation
+- [ ] **AllowedAmount** – test validations
+- [ ] **AuditLog** – test validations
+- [ ] **Authorization** – test validations
+- [ ] **Claim** – test validations
+- [ ] **ClaimLineItem** – test validations
+- [ ] **CommunicationLog** – test `direction` enum and validations
+- [ ] **Diagnosis** – test validations
+- [ ] **EligibilityCheck** – test validations
+- [ ] **Encounter** – test status and date validations
+- [ ] **FeeScheduleItem** – test validations
+- [ ] **LabResult** – test validations
+- [ ] **Medication** – test validations
+- [ ] **Order** – test validations
+- [ ] **Payer** – test validations
+- [ ] **PayerContract** – test validations
+- [ ] **Payment** – test validations
+- [ ] **Problem** – test validations
+- [ ] **VisitNote** – test validations
+- [ ] **Vital** – test validations
 
 ### Phase 2.5 – Seeds
 Database seeds currently create a clinic, a provider and sample patients with
-appointments. Expand to cover all models.
+appointments. Expand to cover every model with representative records.
 
-- [x] Basic patient and appointment seeds
-- [ ] Seed data for billing, claims and schedules
+- [x] **Location** – default clinic
+- [x] **Staff** – provider and admin accounts
+- [x] **Patient** – sample patients
+- [x] **PatientInsurance** – primary insurance for each patient
+- [x] **Appointment** – appointments linking patients and provider
+- [ ] **ProviderSchedule** – provider availability for the clinic
+- [ ] **FeeSchedule** – default schedule
+- [ ] **ServiceCode** – base procedure codes
+- [ ] **FeeScheduleItem** – charges for service codes
+- [ ] **Allergy** – example allergies
+- [ ] **AllowedAmount** – allowed amounts for contracts
+- [ ] **AuditLog** – audit log entries
+- [ ] **Authorization** – preauthorization records
+- [ ] **Claim** – sample claim
+- [ ] **ClaimLineItem** – line items for claim
+- [ ] **CommunicationLog** – SMS/voice logs
+- [ ] **Diagnosis** – sample diagnosis
+- [ ] **EligibilityCheck** – example eligibility check
+- [ ] **Encounter** – encounter for each appointment
+- [ ] **LabResult** – sample lab results
+- [ ] **Medication** – medication entries
+- [ ] **Order** – sample orders
+- [ ] **Payer** – sample payer
+- [ ] **PayerContract** – payer contract record
+- [ ] **Payment** – payment record
+- [ ] **Problem** – sample problem list
+- [ ] **VisitNote** – visit notes
+- [ ] **Vital** – baseline vital signs
 
 ### Phase 2.6 – ER Diagram
 Generate an ER diagram artifact.
