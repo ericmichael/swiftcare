@@ -5,22 +5,111 @@
 ---
 
 ## Phase 1 — Project Bootstrap
-1. `rails new swiftcare --database=sqlite3 --css=tailwind --skip-javascript`
-2. Add Hotwire (already default in Rails 8).
-3. Configure **Minitest** (Rails default), SimpleCov, Faker (for seeds), RuboCop.
-4. Initialize Git repo, CI (GitHub Actions) running `bundle exec rails test && rubocop`.
-5. Deliverables: green CI badge, empty home page.
+- [x] `rails new swiftcare --database=sqlite3 --css=tailwind --skip-javascript`
+- [x] Hotwire available by default in Rails 8
+- [x] Configure **Minitest**, SimpleCov and Faker (StandardRB in place of RuboCop)
+- [x] Initialize Git repo & CI running `bundle exec rails test && standard`
+- [x] Green CI badge and empty home page
 
 ## Phase 2 — Core Schema & Models
-1. Create migrations for **all tables** listed in Section 4 of `concept.md`.
-2. Implement ActiveRecord models with:
-   • associations
-   • enums / value objects
-   • validations (presence, formats, numericality)
-3. Add model concerns for soft-delete, JSON serialization, etc.
-4. Write **model tests** (≥95 % coverage) using Rails fixtures.
-5. Seed realistic fake data (`db/seeds.rb`).
-6. Deliverables: `rails db:migrate && rails test` passes; ER diagram artifact.
+
+### Phase 2.1 – Database Migrations
+The initial schema is present. Each table below corresponds to a migration in
+`db/migrate/20250519053331_create_core_schema.rb`.
+
+#### Tables
+- [x] patients
+- [x] patient_insurances
+- [x] staffs
+- [x] provider_schedules
+- [x] locations
+- [x] appointments
+- [x] encounters
+- [x] problems
+- [x] allergies
+- [x] medications
+- [x] vitals
+- [x] lab_results
+- [x] visit_notes
+- [x] diagnoses
+- [x] orders
+- [x] authorizations
+- [x] service_codes
+- [x] fee_schedules
+- [x] fee_schedule_items
+- [x] payers
+- [x] payer_contracts
+- [x] allowed_amounts
+- [x] claims
+- [x] claim_line_items
+- [x] payments
+- [x] communication_logs
+- [x] audit_logs
+- [x] eligibility_checks
+
+### Phase 2.2 – Model Basics
+Every table has a matching model. Below is the status of validations, enums and
+scopes for each model.
+
+- [x] **Appointment** – enums `visit_type`, `status`; validates `starts_at` &
+  `visit_type`.
+- [x] **Patient** – `full_name` validation; includes `SoftDeletable` and
+  `HasAddress` concerns.
+- [x] **ProviderSchedule** – enum `day_of_week`; validates `day_of_week`.
+- [x] **FeeSchedule** – validates `name`.
+- [x] **Location** – includes `HasAddress`; validates `name`.
+- [x] **PatientInsurance** – enum `insurance_type`; validates presence.
+- [x] **ServiceCode** – enum `code_type`; validates `code`.
+- [x] **Staff** – validates `full_name`.
+- [ ] **Allergy** – needs presence validation.
+- [ ] **AllowedAmount** – lacks validations.
+- [ ] **AuditLog** – lacks validations.
+- [ ] **Authorization** – needs validations.
+- [ ] **Claim** – needs validations.
+- [ ] **ClaimLineItem** – needs validations.
+- [ ] **CommunicationLog** – needs validations and direction enum.
+- [ ] **Diagnosis** – needs validations.
+- [ ] **EligibilityCheck** – needs validations.
+- [ ] **Encounter** – needs validations (dates/status).
+- [ ] **FeeScheduleItem** – needs validations.
+- [ ] **LabResult** – needs validations.
+- [ ] **Medication** – needs validations.
+- [ ] **Order** – needs validations.
+- [ ] **Payer** – add validations.
+- [ ] **PayerContract** – add validations.
+- [ ] **Payment** – add validations.
+- [ ] **Problem** – add validations.
+- [ ] **VisitNote** – add validations.
+- [ ] **Vital** – add validations.
+
+### Phase 2.3 – Model Concerns
+Reusable modules shared across models.
+
+- [x] **SoftDeletable** – provides `active` scope and `soft_delete` method
+- [x] **HasAddress** – adds `store_accessor` for address JSON fields
+- [ ] JSON serialization concern for structured fields
+
+### Phase 2.4 – Model Tests
+Existing tests cover only a few models. Expand until overall coverage exceeds
+95 %.
+
+- [x] Appointment model tests
+- [x] Patient model tests
+- [ ] Tests for remaining models
+
+### Phase 2.5 – Seeds
+Database seeds currently create a clinic, a provider and sample patients with
+appointments. Expand to cover all models.
+
+- [x] Basic patient and appointment seeds
+- [ ] Seed data for billing, claims and schedules
+
+### Phase 2.6 – ER Diagram
+Generate an ER diagram artifact.
+
+- [ ] Draw ER diagram (`docs/ERD.md` placeholder)
+
+**Deliverables:** migrations and tests pass (`rails db:migrate && rails test`).
 
 ## Phase 3 — Authentication & Authorization Layer
 1. Install Devise for Patient & Staff (`Staff` STI for Provider/Admin/FrontDesk).
