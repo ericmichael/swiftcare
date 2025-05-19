@@ -61,26 +61,26 @@ scopes for each model.
 - [x] **PatientInsurance** – enum `insurance_type`; validates presence.
 - [x] **ServiceCode** – enum `code_type`; validates `code`.
 - [x] **Staff** – validates `full_name`.
-- [ ] **Allergy** – needs presence validation.
-- [ ] **AllowedAmount** – lacks validations.
-- [ ] **AuditLog** – lacks validations.
-- [ ] **Authorization** – needs validations.
-- [ ] **Claim** – needs validations.
-- [ ] **ClaimLineItem** – needs validations.
-- [ ] **CommunicationLog** – needs validations and direction enum.
-- [ ] **Diagnosis** – needs validations.
-- [ ] **EligibilityCheck** – needs validations.
-- [ ] **Encounter** – needs validations (dates/status).
-- [ ] **FeeScheduleItem** – needs validations.
-- [ ] **LabResult** – needs validations.
-- [ ] **Medication** – needs validations.
-- [ ] **Order** – needs validations.
-- [ ] **Payer** – add validations.
-- [ ] **PayerContract** – add validations.
-- [ ] **Payment** – add validations.
-- [ ] **Problem** – add validations.
-- [ ] **VisitNote** – add validations.
-- [ ] **Vital** – add validations.
+- [x] **Allergy** – needs presence validation.
+- [x] **AllowedAmount** – lacks validations.
+- [x] **AuditLog** – lacks validations.
+- [x] **Authorization** – needs validations.
+- [x] **Claim** – needs validations.
+- [x] **ClaimLineItem** – needs validations.
+- [x] **CommunicationLog** – needs validations and direction enum.
+- [x] **Diagnosis** – needs validations.
+- [x] **EligibilityCheck** – needs validations.
+- [x] **Encounter** – needs validations (dates/status).
+- [x] **FeeScheduleItem** – needs validations.
+- [x] **LabResult** – needs validations.
+- [x] **Medication** – needs validations.
+- [x] **Order** – needs validations.
+- [x] **Payer** – add validations.
+- [x] **PayerContract** – add validations.
+- [x] **Payment** – add validations.
+- [x] **Problem** – add validations.
+- [x] **VisitNote** – add validations.
+- [x] **Vital** – add validations.
 
 ### Phase 2.3 – Model Concerns
 Reusable modules shared across models.
