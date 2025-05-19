@@ -131,29 +131,29 @@ appointments. Expand to cover every model with representative records.
 - [x] **Patient** – sample patients
 - [x] **PatientInsurance** – primary insurance for each patient
 - [x] **Appointment** – appointments linking patients and provider
-- [ ] **ProviderSchedule** – provider availability for the clinic
-- [ ] **FeeSchedule** – default schedule
-- [ ] **ServiceCode** – base procedure codes
-- [ ] **FeeScheduleItem** – charges for service codes
-- [ ] **Allergy** – example allergies
-- [ ] **AllowedAmount** – allowed amounts for contracts
-- [ ] **AuditLog** – audit log entries
-- [ ] **Authorization** – preauthorization records
-- [ ] **Claim** – sample claim
-- [ ] **ClaimLineItem** – line items for claim
-- [ ] **CommunicationLog** – SMS/voice logs
-- [ ] **Diagnosis** – sample diagnosis
-- [ ] **EligibilityCheck** – example eligibility check
-- [ ] **Encounter** – encounter for each appointment
-- [ ] **LabResult** – sample lab results
-- [ ] **Medication** – medication entries
-- [ ] **Order** – sample orders
-- [ ] **Payer** – sample payer
-- [ ] **PayerContract** – payer contract record
-- [ ] **Payment** – payment record
-- [ ] **Problem** – sample problem list
-- [ ] **VisitNote** – visit notes
-- [ ] **Vital** – baseline vital signs
+- [x] **ProviderSchedule** – provider availability for the clinic
+- [x] **FeeSchedule** – default schedule
+- [x] **ServiceCode** – base procedure codes
+- [x] **FeeScheduleItem** – charges for service codes
+- [x] **Allergy** – example allergies
+- [x] **AllowedAmount** – allowed amounts for contracts
+- [x] **AuditLog** – audit log entries
+- [x] **Authorization** – preauthorization records
+- [x] **Claim** – sample claim
+- [x] **ClaimLineItem** – line items for claim
+- [x] **CommunicationLog** – SMS/voice logs
+- [x] **Diagnosis** – sample diagnosis
+- [x] **EligibilityCheck** – example eligibility check
+- [x] **Encounter** – encounter for each appointment
+- [x] **LabResult** – sample lab results
+- [x] **Medication** – medication entries
+- [x] **Order** – sample orders
+- [x] **Payer** – sample payer
+- [x] **PayerContract** – payer contract record
+- [x] **Payment** – payment record
+- [x] **Problem** – sample problem list
+- [x] **VisitNote** – visit notes
+- [x] **Vital** – baseline vital signs
 
 ### Phase 2.6 – ER Diagram
 Generate an ER diagram artifact.
