@@ -11,5 +11,6 @@ class Encounter < ApplicationRecord
   has_many :orders
   has_one :claim
 
-  enum status: { in_progress: 0, completed: 1, canceled: 2 }
+  enum :status, { in_progress: 0, completed: 1, canceled: 2 }
+  enum :visit_type, { office: 0, telehealth: 1 }
 end

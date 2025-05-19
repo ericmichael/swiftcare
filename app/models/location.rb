@@ -1,7 +1,9 @@
 class Location < ApplicationRecord
-  has_many :provider_schedules
-  has_many :appointments
-  has_many :encounters
+  include HasAddress
+
+  has_many :provider_schedules, dependent: :destroy
+  has_many :appointments, dependent: :nullify
+  has_many :encounters, dependent: :nullify
 
   validates :name, presence: true
 end

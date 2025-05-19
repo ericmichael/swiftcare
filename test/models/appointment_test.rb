@@ -11,4 +11,10 @@ class AppointmentTest < ActiveSupport::TestCase
     appt = Appointment.new(patient: @patient, provider: @provider, location: @location)
     assert_not appt.valid?
   end
+
+  test "defaults to scheduled status" do
+    appt = Appointment.create!(patient: @patient, provider: @provider, location: @location,
+                              starts_at: Time.current, visit_type: :office)
+    assert_equal "scheduled", appt.status
+  end
 end

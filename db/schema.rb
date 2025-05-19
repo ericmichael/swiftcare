@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_19_053331) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_19_054439) do
   create_table "allergies", force: :cascade do |t|
     t.integer "patient_id", null: false
     t.string "allergen"
@@ -270,6 +270,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_19_053331) do
     t.string "preferred_contact_method"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_patients_on_deleted_at"
   end
 
   create_table "payer_contracts", force: :cascade do |t|
