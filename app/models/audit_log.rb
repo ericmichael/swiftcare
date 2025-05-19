@@ -1,6 +1,10 @@
 class AuditLog < ApplicationRecord
-  belongs_to :user, class_name: 'Staff'
+  include JsonSerializable
+
+  belongs_to :user, class_name: "Staff"
   belongs_to :auditable, polymorphic: true
+
+  json_fields :diff_json
 
   validates :action, presence: true
   validates :auditable_type, presence: true

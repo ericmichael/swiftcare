@@ -87,7 +87,7 @@ Reusable modules shared across models.
 
 - [x] **SoftDeletable** – provides `active` scope and `soft_delete` method
 - [x] **HasAddress** – adds `store_accessor` for address JSON fields
-- [ ] JSON serialization concern for structured fields
+- [x] JSON serialization concern for structured fields
 
 ### Phase 2.4 – Model Tests
 Existing tests cover only a few models. Expand until overall coverage exceeds
