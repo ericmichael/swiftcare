@@ -3,8 +3,8 @@ class Order < ApplicationRecord
 
   belongs_to :encounter
 
-  enum order_type: {medication: 0, lab: 1, imaging: 2}
-  enum status: {pending: 0, completed: 1, canceled: 2}
+  enum :order_type, {medication: 0, lab: 1, imaging: 2}
+  enum :status, {pending: 0, completed: 1, canceled: 2}
 
   json_fields :data_json
 
