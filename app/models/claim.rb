@@ -7,4 +7,7 @@ class Claim < ApplicationRecord
   has_many :payments
 
   enum status: { draft: 0, submitted: 1, pending_payment: 2, paid: 3, denied: 4, void: 5 }
+
+  validates :total_billed_cents, presence: true
+  validates :status, presence: true
 end
