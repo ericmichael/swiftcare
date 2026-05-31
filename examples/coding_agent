@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+import argparse
+import os
+import subprocess
+import sys
+
+
+def run_cmd(cmd, cwd=None, check=True):
+    result = subprocess.run(cmd, cwd=cwd, text=True, capture_output=True)
+    if check and result.returncode != 0:
+        print(result.stdout)
+        print(result.stderr, file=sys.stderr)
+        raise RuntimeError(f"Command {cmd} failed with {result.returncode}")
+    return result.stdout.strip()
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Run coding agent in isolated worktree")
+    parser.add_argument("--branch", default="agent-work", help="temporary branch name")
+    parser.add_argument("--worktree", default=".agent-worktree", help="worktree directory")
+    parser.add_argument("--", dest="cmd", nargs=argparse.REMAINDER, help="command to run in worktree")
+    args = parser.parse_args()
+
+    start_commit = run_cmd(["git", "rev-parse", "HEAD"])
+    print(f"Starting from commit {start_commit}")
+
+    # Create worktree
+    if os.path.exists(args.worktree):
+        run_cmd(["git", "worktree", "remove", "--force", args.worktree])
+    run_cmd(["git", "worktree", "add", "-B", args.branch, args.worktree, start_commit])
+
+    # Run command in worktree (placeholder for agent)
+    if args.cmd:
+        run_cmd(args.cmd, cwd=args.worktree, check=True)
+    else:
+        print("No command provided for agent run; exiting")
+
+    # Stage all changes in worktree and compute diff relative to starting commit
+    run_cmd(["git", "add", "-A"], cwd=args.worktree)
+    diff = run_cmd(["git", "diff", "--binary", start_commit], cwd=args.worktree)
+    if diff:
+        patch_file = os.path.join(args.worktree, "changes.patch")
+        with open(patch_file, "w") as f:
+            f.write(diff)
+        print(f"Changes written to {patch_file}")
+    else:
+        print("No changes detected")
+
+    # Cleanup
+    run_cmd(["git", "worktree", "remove", "--force", args.worktree])
+
+if __name__ == "__main__":
+    main()
